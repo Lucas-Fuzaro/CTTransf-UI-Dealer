@@ -1,0 +1,89 @@
+<ion-content>
+  <ion-grid id="container">
+    <ion-row justify-content-center align-items-center style="height:100%;">
+
+      <div *ngIf="signInEvent == false">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title text-center>Login</ion-card-title>
+            <ion-card-subtitle></ion-card-subtitle>
+          </ion-card-header>
+
+          <!-- LOGIN -->
+
+          <ion-card-content>
+            <ion-item color="transparent">
+              <ion-label position="floating" placeholder="CPF">CPF</ion-label>
+              <ion-input type="text" required="true" [(ngModel)]="userCPF"></ion-input>
+            </ion-item>
+            <ion-item color="transparent">
+              <ion-label position="floating" placeholder="Password">Password</ion-label>
+              <ion-input required="true" type="password" [(ngModel)]="password"></ion-input>
+            </ion-item>
+          </ion-card-content>
+          <ion-grid text-center>
+            <ion-button (click)="login()" style="margin-top: 40px;">
+              <ion-icon name="send"></ion-icon>
+              Submit
+            </ion-button>
+          </ion-grid>
+          <ion-grid text-center>
+            <a (click)="signInEvent = true" style="font-size: 11px; border-bottom: 1px cornflowerblue solid; color: cornflowerblue">New
+              employee? Sign In!</a>
+          </ion-grid>
+        </ion-card>
+      </div>
+
+      <!-- Sign In -->
+
+      <div *ngIf="signInEvent == true">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title text-center>Sign In</ion-card-title>
+            <ion-card-subtitle></ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <div style="height: inherit">
+              <ion-item color="transparent">
+                <ion-label placeholder="CPF">CPF</ion-label>
+                <ion-input type="text" required="true" [(ngModel)]="signInCPF"></ion-input>
+              </ion-item>
+              <ion-item color="transparent">
+                <ion-label placeholder="E-mail">E-mail</ion-label>
+                <ion-input required="true" type="email" [(ngModel)]="signInEmail"></ion-input>
+              </ion-item>
+              <ion-item color="transparent">
+                <ion-label placeholder="Password">Password</ion-label>
+                <ion-input required="true" type="password" [(ngModel)]="signInPassword"></ion-input>
+              </ion-item>
+              <ion-item color="transparent">
+                <ion-label placeholder="Key">Unique Key</ion-label>
+                <ion-input required="true" type="text" [(ngModel)]="signInUniqueKey"></ion-input>
+              </ion-item>
+            </div>
+
+            <ion-row>
+              <ion-col text-center size="6">
+                <ion-button (click)="signInEvent = false" style="margin-top: 40px;">
+                  <ion-icon name="return-left"></ion-icon>
+                  Return
+                </ion-button>
+              </ion-col>
+              <ion-col text-center size="6">
+                <ion-button (click)="signIn()" style="margin-top: 40px;">
+                  <ion-icon name="send"></ion-icon>
+                  Submit
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-row>
+  </ion-grid>
+
+
+
+
+</ion-content>

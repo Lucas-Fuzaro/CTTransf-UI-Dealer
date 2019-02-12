@@ -1,0 +1,67 @@
+<ion-content>
+  <div>
+    <ion-grid>
+      <ion-row justify-content-center align-items-center>
+        <img margin-top src="../../assets/login/business.jpg" height="124px" width="124px" style="border-radius: 50%">
+      </ion-row>
+      <h3 text-center>Welcome, {{ user }}</h3>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row justify-content-center align-items-center>
+        <h2> Your Processes </h2>
+      </ion-row>
+    </ion-grid>
+
+
+
+
+
+    <ion-grid padding>
+      <ion-row style="border-bottom: 1px solid gray" justify-content-center align-items-center>
+        <ion-col (click)="sort('customer')" text-center size="4">
+          <h5>Customer</h5>
+        </ion-col>
+        <ion-col (click)="sort('plate')" text-center size="4">
+          <h5>Car Plate</h5>
+        </ion-col>
+        <ion-col (click)="sort('status')" id="status" text-center size="4">
+          <h5>Process Status</h5>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+    <ion-grid *ngFor="let item of mock">
+      <ion-row style="border-bottom: 1px solid rgb(190, 188, 188); height: 40px" justify-content-center
+        align-items-center>
+        <ion-col style="font-size: 14px;" text-center size="4">
+          <p> {{ item.name }}</p>
+        </ion-col>
+        <ion-col style="font-size: 14px;" text-center size="4">
+          <p> {{ item.plate }} </p>
+        </ion-col>
+        <ion-col text-center size="4">
+          <ion-row justify-content-center align-items-center>
+            <ion-col style="font-size: 14px; padding: 0; margin: 0px -10px 0px 0px" size="9">
+              <p> {{ item.status }}</p>
+            </ion-col>
+            <ion-col style="padding:0; margin:0" size="3">
+              <img width="16" height="16" *ngIf="item.status == 'Done'" src="../../assets/home/green.png">
+              <img width="16" height="16" *ngIf="item.status == 'Ongoing'" src="../../assets/home/yellow.png">
+              <img width="16" height="16" *ngIf="item.status == 'Denied'" src="../../assets/home/red.png">
+            </ion-col>
+
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+  </div>
+
+
+
+
+
+</ion-content>
